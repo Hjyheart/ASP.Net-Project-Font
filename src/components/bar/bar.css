@@ -1,0 +1,87 @@
+/* main */
+.main-container {
+  display: block;
+  display: -webkit-flex;
+  flex-direction: row;
+  align-items: flex-start;
+  height: 50px;
+  background-color: #373D41;
+}
+
+p {
+  padding-top: 16px;
+  margin-left: 5px;
+}
+
+/* logo */
+.logo {
+  color: white;
+  text-align: center;
+  width: 200px;
+  height: 100%;
+  border-right: 1px solid black;
+  cursor: pointer;
+}
+
+.logo:hover {
+  background-color: black;
+}
+
+.block {
+  width: 60%;
+  height: 100%;
+}
+
+@media screen and (max-width: 950px) {
+  .block {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .block {
+    width: 40%;
+  }
+}
+
+/* others */
+.others {
+  height: 100%;
+  border-left: 1px solid black;
+  color: white;
+}
+/* user */
+.user {
+  float: left;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  align-items: flex-start;
+  border-right: 1px solid black;
+  height: 100%;
+  cursor: pointer;
+  padding: 0 20px;
+  font-size: 0.8em;
+}
+
+.user i {
+  margin-top: 17px;
+  margin-right: 2px;
+}
+
+.user:hover {
+  background-color: black;
+}
+
+.logout {
+  float: left;
+  color: white;
+  padding: 14px 20px;
+  cursor: pointer;
+  height: 100%;
+  border-right: 1px solid black;
+}
+
+.logout:hover {
+  background-color: black;
+}

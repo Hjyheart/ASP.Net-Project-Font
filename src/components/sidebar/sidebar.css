@@ -1,0 +1,97 @@
+.main-container {
+  height: 100%;
+  width: 202px;
+  background-color: #333844;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.main-container.active {
+  width: 40px;
+}
+
+.main-container.active p {
+  display: none;
+}
+
+.three {
+  background-color: #4A5164;
+  width: 100%;
+  cursor: pointer;
+}
+
+.three img {
+  position: relative;
+  width: 15px;
+  margin: 0 auto;
+  left: 45%;
+  color: gray;
+  height: 35px;
+  transition: 0.5s;
+}
+
+.main-container.active img {
+  left: 30%;
+}
+
+.item {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  align-items: flex-start;
+  align-self: flex-start;
+  background-color: #42495B;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  color: white;
+  font-size: 0.7em;
+  cursor: pointer;
+}
+
+.item:hover {
+  background-color: #22C2DD;
+}
+
+.item img {
+  width: 20px;
+  padding: 11px;
+}
+
+.item p {
+  position: relative;
+  padding: 15px;
+  left: 28px;
+}
+
+/* aside only for active status */
+.aside {
+  display: none;
+  position: absolute;
+  width: 100px;
+  left: 48px;
+  height: 11px;
+  background-color: #373D41;
+  padding: 12px;
+  margin: 3px;
+  z-index: 10000;
+}
+
+.aside::before {
+  content: '';
+  position: absolute;
+  left: -15px;
+  top: 8px;
+  border: 10px solid #373D41;
+  border-color: transparent #373D41 transparent transparent;
+}
+
+.aside.active {
+  display: block;
+}
+
+
+

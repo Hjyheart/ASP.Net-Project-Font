@@ -1,0 +1,109 @@
+/* animation */
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-active {
+  transform: translateX(10px);
+  opacity: 0;
+}
+/* main container */
+.main-container {
+  position: absolute;
+  padding-top: 40px;
+  margin-left: 20px;
+  width: calc(100% - 222px);
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: calc(100% - 50px);
+}
+
+.main-container > h1 {
+  font-size: 2em;
+  margin-bottom: 40px;
+}
+
+.container {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+
+.container img {
+  width: 100%;
+  height: 250px;
+  display: block;
+}
+
+@media screen and (max-width: 1500px) {
+  .container img {
+    height: 200px;
+  }
+}
+
+.el-card {
+  height: 350px;
+  transition: .5s;
+}
+
+.el-card.active {
+  height: 600px;
+}
+
+.card-title {
+  text-align: center;
+  margin: 14px auto;
+}
+
+.down {
+  position: relative;
+  bottom: -29px;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.down i {
+  transition: 0.5s;
+}
+
+.down.active i {
+  transform: translateX(-40px);
+}
+
+.down span {
+  position: absolute;
+  color: #22C2DD;
+  font-size: 0.8em;
+  top: 3px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.detail {
+  padding:30px;
+  padding-left: 20%;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+}
+
+.detail p {
+  margin-bottom: 10px;
+}
+
+.detail span {
+  font-family: Chalkboard, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
