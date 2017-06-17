@@ -38,7 +38,7 @@
       <h2 v-if="show">俱乐部设备管理系统</h2>
     </transition>
     <transition name="slide-up">
-      <span v-if="show">.Net课设 1452822 洪嘉勇</span>
+      <span v-if="show">.Net课设 1452822 洪嘉勇 1452716 张尹嘉</span>
     </transition>
   </div>
 </template>

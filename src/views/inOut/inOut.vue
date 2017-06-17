@@ -8,9 +8,6 @@
       <el-form-item label="设备昵称">
         <el-input v-model="form.nikename" placeholder="请输入设备昵称"></el-input>
       </el-form-item>
-      <el-form-item label="设备型号">
-        <el-input v-model="form.number" placeholder="请输入设备型号"></el-input>
-      </el-form-item>
       <el-form-item label="设备类型">
         <el-select v-model="form.type" placeholder="请选择设备类型">
           <el-option label="手机" value="phone"></el-option>
@@ -20,13 +17,23 @@
           <el-option label="音响" value="player"></el-option>
         </el-select>
       </el-form-item>
+      <el-form-item label="具体型号">
+        <el-row gutter=10>
+          <el-col :span="10">
+            <el-select v-model="form.type1" placeholder="请选择设备品牌">
+              <el-option :label="item.name" :value="index" v-for="(item, index) in type[form.type]"></el-option>
+            </el-select>
+          </el-col>
+          <el-col :span="10">
+            <el-select v-model="form.type2" placeholder="请选择具体系列">
+              <el-option :label="item.name" :value="item.name" v-for="(item, index) in type[form.type][form.type1].types"></el-option>
+            </el-select>
+          </el-col>
+        </el-row>
+      </el-form-item>
       <el-form-item label="入库时间">
         <el-col :span="11">
-          <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
-        </el-col>
-        <el-col class="line" :span="2"> &nbsp; </el-col>
-        <el-col :span="11">
-          <el-time-picker type="fixed-time" placeholder="选择时间" v-model="form.date2" style="width: 100%;"></el-time-picker>
+          <el-date-picker type="date" placeholder="选择日期" v-model="form.date" style="width: 100%;"></el-date-picker>
         </el-col>
       </el-form-item>
       <el-form-item label="保护措施">
@@ -64,10 +71,6 @@
           <el-col :span="11">
             <el-date-picker type="date" placeholder="选择日期" v-model="dataEditForm.date1" style="width: 100%;"></el-date-picker>
           </el-col>
-          <el-col class="line" :span="2"> &nbsp; </el-col>
-          <el-col :span="11">
-            <el-time-picker type="fixed-time" placeholder="选择时间" v-model="dataEditForm.date2" style="width: 100%;"></el-time-picker>
-          </el-col>
         </el-form-item>
         <el-form-item label="保护措施">
           <el-switch on-text="" off-text="" v-model="dataEditForm.safe"></el-switch>
@@ -86,18 +89,21 @@
 </template>
 
 <script>
+  import {type} from '../../assets/type'
+
   export default {
     data () {
       return {
         title: '入库',
+        type: {},
         activeName: 'in',
         form: {
           name: '',
           nikename: '',
-          number: '',
-          type: '',
-          date1: '',
-          date2: '',
+          type: 'phone',
+          type1: 0,
+          type2: '',
+          date: '',
           safe: false,
           desc: ''
         },
@@ -142,9 +148,16 @@
         }, 1000);
       }
     },
+    watch: {
+      form: function (val) {
+
+      }
+    },
     mounted () {
       document.title = this.title
 //      this.open()
+      console.log(type)
+      this.type = type
     }
   }
 </script>
