@@ -96,7 +96,7 @@
                 stripe
                 style="width: 1000px">
                 <el-table-column
-                  prop="date1"
+                  prop="date"
                   label="入库日期">
                 </el-table-column>
                 <el-table-column
@@ -104,24 +104,28 @@
                   label="设备名称">
                 </el-table-column>
                 <el-table-column
-                  prop="nikename"
-                  label="设备昵称">
-                </el-table-column>
-                <el-table-column
-                  prop="number"
-                  label="型号">
-                </el-table-column>
-                <el-table-column
                   prop="type"
                   label="类型">
+
+                </el-table-column>
+                <el-table-column
+                  prop="type1"
+                  label="品牌">
+                </el-table-column>
+                <el-table-column
+                  prop="type2"
+                  label="具体型号">
                 </el-table-column>
                 <el-table-column
                   prop="desc"
                   label="设备描述">
                 </el-table-column>
                 <el-table-column
-                  prop="safe"
                   label="是否采取安全措施">
+                  <template scope="scope">
+                    <p v-if="tableData[scope.$index].safe">true</p>
+                    <p v-if="!tableData[scope.$index].safe">false</p>
+                  </template>
                 </el-table-column>
                 <el-table-column
                   label="操作">
@@ -150,9 +154,6 @@
       <el-form ref="editDataForm" :model="dataEditForm" label-width="80px">
         <el-form-item label="设备名称">
           <el-input v-model="dataEditForm.name" placeholder="请输入设备名称"></el-input>
-        </el-form-item>
-        <el-form-item label="设备昵称">
-          <el-input v-model="dataEditForm.nikename" placeholder="请输入设备昵称"></el-input>
         </el-form-item>
         <el-form-item label="设备型号">
           <el-input v-model="dataEditForm.number" placeholder="请输入设备型号"></el-input>
@@ -191,10 +192,16 @@
 </template>
 
 <script>
+
+  import {getAllDevice} from '../../service/fetchs'
+  import {type} from '../../assets/type'
+
   export default {
+    // TODO: 给设备划定页数
     data () {
       return {
         title: '查询',
+        type: {},
         searchInput: '',
         selectValue: '',
         res: [],
@@ -228,14 +235,13 @@
         active: false,
         switchPanel: false,
         tableData: [{
-          name: 'mac pro',
-          nikename: 'hjyheart',
-          number: '最新款',
-          type: 'computer',
-          date1: '2017-6-7',
-          date2: '',
-          safe: "false",
-          desc: '无敌'
+          name: '小米6',
+          type: 'phone',
+          type1: 0,
+          type2: 10,
+          date: '2017-5-1',
+          safe: false,
+          desc: '无敌的小米6'
         }],
         editDialogShow: false,
         deleteDialogShow: false,
@@ -260,6 +266,12 @@
         console.log(item);
       },
       loadAll () {
+        getAllDevice().then(res => {
+          this.res = res
+        }).catch(err => {
+          console.log(err)
+        })
+
         this.res = [
           { value: '张尹嘉'},
           { value: '夏陈'},

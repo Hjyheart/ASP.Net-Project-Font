@@ -10,45 +10,38 @@
         <span>入库</span>
       </div>
     </div>
-    <div class="item" @mouseover="activeId=2" @mouseout="activeId=-1" @click="to('/search')">
-      <img src="../../../static/icon/more.svg" alt="">
-      <p>查询</p>
-      <div :class="['aside', (active && activeId === 2) ? 'active':'']">
-        <span>查询</span>
-      </div>
-    </div>
-    <div class="item" @mouseover="activeId=3" @mouseout="activeId=-1" @click="to('/manage')">
+    <div class="item" @mouseover="activeId=2" @mouseout="activeId=-1" @click="to('/manage')">
       <img src="../../../static/icon/more.svg" alt="">
       <p>管理</p>
-      <div :class="['aside', (active && activeId === 3) ? 'active':'']">
+      <div :class="['aside', (active && activeId === 2) ? 'active':'']">
         <span>管理</span>
       </div>
     </div>
-    <div class="item" @mouseover="activeId=4" @mouseout="activeId=-1" @click="to('/statistic')">
+    <div class="item" @mouseover="activeId=3" @mouseout="activeId=-1" @click="to('/statistic')">
       <img src="../../../static/icon/more.svg" alt="">
       <p>统计</p>
-      <div :class="['aside', (active && activeId === 4) ? 'active':'']">
+      <div :class="['aside', (active && activeId === 3) ? 'active':'']">
         <span>统计</span>
       </div>
     </div>
-    <div class="item" @mouseover="activeId=5" @mouseout="activeId=-1" @click="to('/recommendation')">
+    <div class="item" @mouseover="activeId=4" @mouseout="activeId=-1" @click="to('/recommendation')">
       <img src="../../../static/icon/more.svg" alt="">
       <p>推荐</p>
-      <div :class="['aside', (active && activeId === 5) ? 'active':'']">
+      <div :class="['aside', (active && activeId === 4) ? 'active':'']">
         <span>推荐</span>
       </div>
     </div>
-    <div class="item" @mouseover="activeId=6" @mouseout="activeId=-1" @click="to('/history')">
+    <div class="item" @mouseover="activeId=5" @mouseout="activeId=-1" @click="to('/history')">
       <img src="../../../static/icon/more.svg" alt="">
       <p>历史</p>
-      <div :class="['aside', (active && activeId === 6) ? 'active':'']">
+      <div :class="['aside', (active && activeId === 5) ? 'active':'']">
         <span>历史</span>
       </div>
     </div>
-    <div class="item" @mouseover="activeId=7" @mouseout="activeId=-1" @click="to('/users')">
+    <div class="item" @mouseover="activeId=6" @mouseout="activeId=-1" @click="to('/users')">
       <img src="../../../static/icon/more.svg" alt="">
       <p>用户</p>
-      <div :class="['aside', (active && activeId === 7) ? 'active':'']">
+      <div :class="['aside', (active && activeId === 6) ? 'active':'']">
         <span>用户</span>
       </div>
     </div>
