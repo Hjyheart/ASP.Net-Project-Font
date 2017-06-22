@@ -21,6 +21,8 @@ export default async(type = 'GET', url = '', data = {}, method = 'fetch') => {
       queryStr = queryStr.substr(0, queryStr.lastIndexOf('&'));
       url += '?' + queryStr;
     }
+
+    data = {}
   }
 
   return new Promise((resolve, reject) => {

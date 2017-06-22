@@ -7,7 +7,7 @@
     <div class="others">
       <div class="user"  @mouseover="userActive = true;searchActive = false" @click="toAdmin">
         <i class="fa fa-user"></i>
-        <p>hjyheart</p>
+        <p>{{username}}</p>
       </div>
       <div class="logout" @click="logout">
         <i class="fa fa-sign-out"></i>
@@ -20,11 +20,13 @@
   export default {
     data () {
       return {
-        show: ''
+        show: '',
+        username: ''
       }
     },
     mounted () {
       this.show = this.$route.path
+      this.username = this.$session.get('Auth')
     },
     methods: {
       logout () {

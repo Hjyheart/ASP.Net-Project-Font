@@ -36,8 +36,9 @@
   position: absolute;
   width: 300px;
   height: 120px;
-  left: 38%;
-  bottom: 55%;
+  left: 9%;
+  bottom: 50%;
+  background-color: black;
   border-radius: 10px;
   opacity: 0.8;
 }
@@ -45,24 +46,12 @@
 .register-form {
   position: absolute;
   width: 300px;
-  height: 200px;
-  left: 38%;
-  bottom: 44%;
+  height: 230px;
+  left: 9%;
+  bottom: 50%;
+  background-color: black;
   border-radius: 10px;
   opacity: 0.8;
-}
-
-.avatar {
-  width: 100%;
-}
-
-.avatar img {
-  position: relative;
-  left: 29%;
-  margin-bottom: 5px;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
 }
 
 .username {
@@ -74,12 +63,11 @@
 
 .username input {
   font-size: 0.8em;
-  width: 80%;
+  width: 90%;
   height: 35px;
   color: white;
   background: none;
-  border-radius: 5px;
-  border: 2px solid white;
+  border: transparent;
 }
 
 .username i {
@@ -95,7 +83,7 @@
 }
 
 .password {
-  width: 80%;
+  width: 100%;
   margin: 4px;
   margin-top: 26px;
   margin-left: 10px;
@@ -116,60 +104,36 @@
   font-size: 0.9em;
 }
 
-.password > div {
-  position: absolute;
-  top: 186px;
-  right: 53px;
-  background-color: white;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
 .password i {
   position: absolute;
-  color: black;
-  margin-top: 7px;
-  margin-left: 9px;
+  color: white;
+  margin-top: 8px;
+  margin-left: 10px;
 }
 
 h2 {
   font-size: 2.0em;
   position: fixed;
   bottom: 40px;
-  right: 9%;
+  left: 9%;
   color: white;
-  font-style: italic;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Chalkboard, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-span {
-  color: white;
-  position: absolute;
-  right: 9%;
-  bottom: 20px;
+h2 > span {
   opacity: 0.6;
-  font-size: 0.9em;
+  font-size: 0.5em;
 }
 
 a {
   color: white;
-  position: absolute;
-  left: 39%;
-  bottom: 35%;
+  position: fixed;
+  bottom: 45%;
+  left: 9%;
+  text-decoration: underline;
   cursor: pointer;
 }
 
-h1 {
-  color: white;
-  margin-left: 10px;
-  font-size: 1.5em;
-}
 
-.el-button {
-  margin-left: 10px;
-  margin-top: 5px;
-}
 
 

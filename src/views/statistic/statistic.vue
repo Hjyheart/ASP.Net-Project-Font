@@ -16,10 +16,10 @@
               </transition>
             </div>
             <transition name="slide-fade">
-              <div class="detail" v-if="computerAppend">
-                <p>总电脑数: &nbsp <span>12</span></p>
-                <p>最受欢迎: &nbsp <span>ThinkPad xx</span></p>
-                <p>安全保护: &nbsp <span>10</span></p>
+              <div class="detail" v-if="true">
+                <p>总电脑数: &nbsp <span>{{computer.count}}</span></p>
+                <p>最受欢迎: &nbsp <span v-for="item in tags[0]">{{item}}&nbsp</span></p>
+                <p>安全保护: &nbsp <span>{{computer.safe}}</span></p>
                 <p>...</p>
               </div>
             </transition>
@@ -31,9 +31,20 @@
             <div class="card-title">
               <span>手机</span>
             </div>
-            <div class="down">
+            <div :class="['down', phoneActive ? 'active':'']" @mouseover="phoneActive=true"  @mouseout="phoneActive=false">
               <i class="fa fa-angle-double-down" style="color: #22C2DD"></i>
+              <transition name="slide-fade">
+                <span v-if="phoneActive" @click="append('phone')">查看详情</span>
+              </transition>
             </div>
+            <transition name="slide-fade">
+              <div class="detail" v-if="true">
+                <p>总电脑数: &nbsp <span>{{phone.count}}</span></p>
+                <p>最受欢迎: &nbsp <span v-for="item in tags[1]">{{item}}&nbsp</span></p>
+                <p>安全保护: &nbsp <span>{{phone.safe}}</span></p>
+                <p>...</p>
+              </div>
+            </transition>
           </el-card>
         </el-col>
         <el-col :span="6">
@@ -44,7 +55,18 @@
             </div>
             <div class="down">
               <i class="fa fa-angle-double-down" style="color: #22C2DD"></i>
+              <transition name="slide-fade">
+                <span v-if="cameraActive" @click="append('phone')">查看详情</span>
+              </transition>
             </div>
+            <transition name="slide-fade">
+              <div class="detail" v-if="true">
+                <p>总电脑数: &nbsp <span>{{camera.count}}</span></p>
+                <p>最受欢迎: &nbsp <span v-for="item in tags[2]">{{item}}&nbsp</span></p>
+                <p>安全保护: &nbsp <span>{{camera.safe}}</span></p>
+                <p>...</p>
+              </div>
+            </transition>
           </el-card>
         </el-col>
         <el-col :span="6">
@@ -56,6 +78,14 @@
             <div class="down">
               <i class="fa fa-angle-double-down" style="color: #22C2DD"></i>
             </div>
+            <transition name="slide-fade">
+              <div class="detail" v-if="true">
+                <p>总电脑数: &nbsp <span>{{player.count}}</span></p>
+                <p>最受欢迎: &nbsp <span v-for="item in tags[3]">{{item}} &nbsp</span></p>
+                <p>安全保护: &nbsp <span>{{player.safe}}</span></p>
+                <p>...</p>
+              </div>
+            </transition>
           </el-card>
         </el-col>
       </el-row>
@@ -64,6 +94,9 @@
 </template>
 
 <script>
+
+  import {getRecommendations, getAllDevice} from '../../service/fetchs'
+
   export default {
     data () {
       return {
@@ -72,18 +105,88 @@
         computerAppend: false,
         phoneActive: false,
         cameraActive: false,
-        playerActive: false
+        playerActive: false,
+        types: ['phone', 'computer', 'ppc', 'player'],
+        tags: [],
+        computer: {
+          count: 0,
+          tags:[],
+          safe: 0
+        },
+        phone: {
+          count: 0,
+          tags:[],
+          safe: 0
+        },
+        camera: {
+          count: 0,
+          tags:[],
+          safe: 0
+        },
+        player:{
+          count: 0,
+          tags:[],
+          safe: 0
+        }
       }
     },
     methods: {
       append (t) {
         if (t === 'com') {
           this.computerAppend = !this.computerAppend
+        }else if (t === 'phone'){
+          this.phoneAppend = !this.phoneAppend
         }
+      }
+    },
+    beforeCreate: function () {
+      if (!this.$session.exists()) {
+        this.$router.push('/login')
+      }else {
       }
     },
     mounted () {
       document.title = this.title
+
+      getAllDevice().then(res => {
+        console.log(res)
+
+        for (let i = 0; i < res.length; i++){
+          if (res[i].type_1 === 'computer'){
+            this.computer.count += 1
+            if (res[i].is_safety){
+              this.computer.safe += 1
+            }
+          }else if (res[i].type_1 === 'phone'){
+            this.phone.count += 1
+            if (res[i].is_safety){
+              this.phone.safe += 1
+            }
+          }else if (res[i].type_1 === 'camera'){
+            this.camera.count += 1
+            if (res[i].is_safety){
+              this.camera.safe += 1
+            }
+          }else if (res[i].type_1 === 'player'){
+            this.player.count += 1
+            if (res[i].is_safety){
+              this.player.safe += 1
+            }
+          }
+        }
+
+      }).catch(err => {
+        console.log(err)
+      })
+
+      for (let i = 0; i < this.types.length; i++){
+        getRecommendations(this.types[i]).then(res => {
+          console.log(res)
+          this.tags.push(res)
+        }).catch(err => {
+          console.log(err)
+        })
+      }
     }
   }
 </script>
