@@ -3,7 +3,7 @@
  */
 
 
-import {baseUrl} from '../../config/index'
+import {baseUrl} from '../../config/ipconfig'
 import $ from 'jquery'
 
 export default async(type = 'GET', url = '', data = {}, method = 'fetch') => {

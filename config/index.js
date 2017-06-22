@@ -34,6 +34,5 @@ module.exports = {
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
     cssSourceMap: false
-  },
-  baseUrl: 'http://192.168.1.108:50141'
+  }
 }
