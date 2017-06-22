@@ -1,7 +1,7 @@
 @echo off
 echo 'step 1:��ȡ����ip��ַ'
 pause
-for /f "tokens=4" %%a in ('route print^|findstr 0.0.0.0.*0.0.0.0') do (
+for /f "tokens=2 delims=:" %%a in ('ipconfig^|findstr "IPv4"') do (
  set IP=%%a
 )
 echo var baseUrl='http://%IP%:50141';export {baseUrl} > ./config/ipconfig.js
