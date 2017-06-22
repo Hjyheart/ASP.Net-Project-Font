@@ -29,4 +29,6 @@ pause
 echo 'step 5:install and start server'
 pause
 
-npm install && npm start
+start "" "run.bat"
+
+exit
