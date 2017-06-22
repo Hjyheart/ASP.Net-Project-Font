@@ -1,30 +1,27 @@
 @echo off
-echo 'step 1:è·å–æœ¬åœ°ipåœ°å€'
+echo 'step 1:»ñÈ¡±¾µØipµØÖ·'
 pause
 for /f "tokens=4" %%a in ('route print^|findstr 0.0.0.0.*0.0.0.0') do (
  set IP=%%a
 )
 echo var baseUrl='http://%IP%:50141';export {baseUrl} > ./config/ipconfig.js
 
-echo 'step 2.å®‰è£…node.js,è¯·ä½¿ç”¨é»˜è®¤é…ç½®å®‰è£…ä¸c:/program files, å®‰è£…å®Œåå†æ‰§è¡Œstep3'
+echo 'step 2.°²×°node.js,ÇëÊ¹ÓÃÄ¬ÈÏÅäÖÃ°²×°Óëc:/program files, °²×°ÍêºóÔÙÖ´ĞĞstep3'
 echo.&echo
 echo   1.32bit
 echo   2.64bit
 
-set /p select=è¯·è¾“å…¥æ•°å­— æŒ‰å›è½¦ç»§ç»­:
+set /p select=ÇëÊäÈëÊı×Ö °´»Ø³µ¼ÌĞø:
 if %select%== 1 (start "" "./node-v8.1.2-x86.msi")
 if %select%== 2 (start "" "./node-v8.1.2-x64.msi"
 )
 pause
 
-echo 'step 4:é…ç½®nodeç¯å¢ƒå˜é‡'
+echo 'step 4:ÅäÖÃnode»·¾³±äÁ¿'
 pause
 
 echo set path=%path%;C:\Program Files\Nodejs
 pause
 
-echo 'step 5:å®‰è£…ä¾èµ–å¹¶å¯åŠ¨å‰ç«¯server'
-pause
-
-npm install && npm start
+echo 'step 5:°²×°ÒÀÀµ²¢Æô¶¯Ç°¶Ëserver'
 pause
