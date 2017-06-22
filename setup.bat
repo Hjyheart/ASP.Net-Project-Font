@@ -1,27 +1,27 @@
 @echo off
-echo 'step 1:获取本地ip地址'
+echo 'step 1:锟斤拷取锟斤拷锟斤拷ip锟斤拷址'
 pause
 for /f "tokens=4" %%a in ('route print^|findstr 0.0.0.0.*0.0.0.0') do (
  set IP=%%a
 )
 echo var baseUrl='http://%IP%:50141';export {baseUrl} > ./config/ipconfig.js
 
-echo 'step 2.安装node.js,请使用默认配置安装与c:/program files, 安装完后再执行step3'
+echo 'step 2.锟斤拷装node.js,锟斤拷使锟斤拷默锟斤拷锟斤拷锟矫帮拷装锟斤拷c:/program files, 锟斤拷装锟斤拷锟斤拷锟街达拷锟絪tep3'
 echo.&echo
 echo   1.32bit
 echo   2.64bit
 
-set /p select=请输入数字 按回车继续:
+set /p select=锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷 锟斤拷锟截筹拷锟斤拷锟斤拷:
 if %select%== 1 (start "" "./node-v8.1.2-x86.msi")
 if %select%== 2 (start "" "./node-v8.1.2-x64.msi"
 )
 pause
 
-echo 'step 4:配置node环境变量'
+echo 'step 4:锟斤拷锟斤拷node锟斤拷锟斤拷锟斤拷锟斤拷'
 pause
 
-echo set path=%path%;C:\Program Files\Nodejs
+echo set path=%path%;C:\Program Files\nodejs
 pause
 
-echo 'step 5:安装依赖并启动前端server'
+echo 'step 5:锟斤拷装锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷前锟斤拷server'
 pause
