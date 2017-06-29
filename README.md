@@ -1,2 +1,6 @@
 # ASP.Net-Project-Font
-.Net课设前端
+Project for .Net
+A management platform for devices in club.
+![cover](./cover.png)
+
+

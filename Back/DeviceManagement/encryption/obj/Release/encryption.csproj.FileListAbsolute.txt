@@ -1,0 +1,4 @@
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\encryption\bin\Release\encryption.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\encryption\bin\Release\encryption.pdb
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\encryption\obj\Release\encryption.dll
+E:\VSProject\ManagementSystem\ManagementSystem\DeviceManagement\encryption\obj\Release\encryption.pdb
